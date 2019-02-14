@@ -21,3 +21,18 @@ init1 xs = take (length(xs) - 1) xs
       --a
 binom n k = product [1..n]/product [1..k] * product [1..dif]
             where dif = n - k
+--ex7
+      --a
+max3 x y z  | x >= y && x >= z = x
+            | y >= x && y>=z = y
+            | otherwise = z
+
+min3 x y z  | x <= y && x <=z = x
+            | y <= x && y <= z = y
+            | otherwise = z
+    --b
+max3_ :: Int -> Int -> Int -> Int
+max3_ x y z = max (max x y) z
+
+min3_ :: Int -> Int -> Int -> Int
+min3_ x y z = min (min x y) z
