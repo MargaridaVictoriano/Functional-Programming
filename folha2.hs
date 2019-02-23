@@ -23,6 +23,6 @@ intervalo x a b = x >= a && x <= b
     --h
 palindromo :: Eq a => [a] -> Bool
 palindromo xs = reverse xs == xs
-    --i DÚVIDA NO TIPO
+    --i 
 twice :: (t -> t) -> t -> t
 twice f x = f(f x)
