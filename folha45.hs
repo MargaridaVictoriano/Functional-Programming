@@ -102,3 +102,20 @@ myReplicate x y = y : myReplicate(x-1) y
 nelem :: Int -> [a] -> a
 nelem (x:xs) y | y <= 0 = x
                | otherwise = nelem (y-1) xs
+import Data.Char
+import Data.List
+--ex40
+--test if a given password is strong
+forte :: String -> Bool
+forte xs = length xs >= 8 && length[c | c <- xs, isLower c] > 0 && length [c | c <- xs, isUpper c] > 0 && length [c | c <- xs, isDigit c] > 0
+
+--ex41
+nub' :: (Eq a) => [a] -> [a]
+nub' [] = []
+nub' (x:xs) = x : nub' (filter (/=x) xs)
+
+--ex42
+intersperse1 :: a -> [a] -> [a]
+intersperse1 _ []  = []
+intersperse1 _ [x] = [x]
+intersperse1 sep (x:xs) = x : sep : intersperse1 sep xs
