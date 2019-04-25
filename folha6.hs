@@ -1,3 +1,4 @@
+--Ordem Superior : 48, 51, 49, 50, 52, 53, 54, 56
 --ex48 : Escrever [x^2+1 | x <- [1..100], x 'mod' 3 /= 0] usando map e filter e [1..100]
 -- map f (filter p xs)
 --ou
@@ -45,3 +46,20 @@ rzipWith :: (a->b->c) -> [a] -> [b] -> [c]
 rzipWith _ [] _ = []
 rzipWith _ _ [] = []
 rzipWith f (x:xs) (y:ys) = f x y : rzipWith f xs ys
+
+--ex53
+shift :: [a] -> [a]
+shift [] = []
+shift (x:xs) = xs ++ [x]
+
+rotateaux :: [a] -> [a] -> [[a]]
+rotateaux l [] = [l]
+rotateaux l (x:xs) = f x (rotateaux l xs)
+     where
+       f x y = (shift (head y)) : y
+
+rotate :: [a] -> [[a]]
+rotate l = rotateaux l (tail l)
+
+rotate' l = foldr f [l] [1..(length l)-1]
+        where f x y = (shift (head y)) : y
