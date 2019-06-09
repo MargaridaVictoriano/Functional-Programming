@@ -43,7 +43,7 @@ compL fs v = foldr f v fs
 data Arv a = Vazia | No a (Arv a) (Arv a)
 soma :: Num a => Arv a -> a
 soma Vazia = 0
-soma (No x esq dir) = x + (soma esq) (soma dir)
+soma (No x esq dir) = x + (soma esq) + (soma dir)
 
 foldrtree :: (a -> b -> b -> b) -> b -> Arv a -> b
 foldrtree f v Vazia = v
