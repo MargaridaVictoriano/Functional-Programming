@@ -157,3 +157,29 @@ textual n = if n < 1000 then textualtresdigitos n else
                 if n < 1101 then "mil e " ++ textualtresdigitos (n `mod` 1000) else
                  if n<1999 then "mil " ++ textualtresdigitos (n `mod` 1000) else
                    if n < 10000 then textualdoisdigitos (n `div` 1000) ++ " mil " ++ textualtresdigitos (n `mod` 1000) else "Introduza numeros até 9999"
+--ex14
+	--a
+	--:t ['a','b','c'] = [Char]
+	--:t ('a','b','c') = (Char,Char,Char)
+	--:t [(False,'0'),(True,'1')] = [(Bool,Char)]
+	--:t ([False,True],['0','1']) = ([Bool],[Char])
+	--:t [tail,init,reverse] = [[a] -> [a]]
+	--:t [id,not] = [Bool -> Bool]
+            
+--ex22
+quadrados = [x^2 | x<-[1..100]]
+--ex23
+      --a
+aprox :: Int -> Double
+aprox n = 1 + sum [-1^(x)/fromIntegral((2*x)+1) | x<-[1..n]]
+      --b
+aprox' :: Int -> Double
+aprox' n = 1 + sum[-1^(x)/fromIntegral(x+1)^2 | x<-[1..n]]
+
+--ex24
+divprop :: Int -> [Int]
+divprop n = [x | x <- [1..n-1], mod n x == 0]
+
+--ex25
+perfeitos :: Int -> [Int]
+perfeitos n = [ x | x <- [1..n], (sum (divprop x)) == x]
